@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivero Luchito</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-logo">Vivero <span>Luchito</span></div>
+    <div class="nav-links">
+      <a href="#equipo">Nuestro equipo</a>
+      <a href="#plantas">Plantas</a>
+    </div>
+  </nav>
+  <section id="hero">
+    <div class="hero-left">
+      <span class="hero-tag">✦ Vivero familiar desde 2019</span>
+      <h1 class="hero-titulo">Donde cada<br><em>planta tiene</em><br>su historia</h1>
+      <p class="hero-desc">
+        Cultivamos con amor, vendemos con conocimiento.
+        Encuentra tu próxima planta favorita y aprende
+        cómo cuidarla.
+      </p>
+      <a href="#plantas" class="hero-btn">Ver plantas →</a>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-foto-grande">
+        <img src="/img/Carrusel/IMG_1610.jpg" alt="Vivero" class="hero-slide activa">
+        <img src="/img/Carrusel/IMG_1614.jpg" alt="Vivero" class="hero-slide">
+        <img src="/img/Carrusel/IMG_1633.jpg" alt="Vivero" class="hero-slide">
+        <img src="/img/Carrusel/IMG_1662.jpg" alt="Vivero" class="hero-slide">
+        <img src="/img/Carrusel/IMG_1665.jpg" alt="Vivero" class="hero-slide">
+      </div>
+    </div>
+  </section>
+  <!-- EQUIPO -->
+  <section id="equipo">
+    <div class="seccion-header">
+      <span class="seccion-tag">✦ Las personas detrás</span>
+      <h2>Nuestro <em>equipo</em></h2>
+    </div>
+
+    <div class="equipo-grid">
+
+      <div class="tarjeta-persona">
+        <div class="persona-foto">
+          <img src="/img/Nuestro Equipo/Mama.jpg" alt="Edith">
+        </div>
+        <div class="persona-info">
+          <h3>Edith Vivanco</h3>
+          <span>Fundadora & Especialista</span>
+        </div>
+      </div>
+
+      <div class="tarjeta-persona">
+        <div class="persona-foto">
+          <img src="/img/Nuestro Equipo/Rosa.jpg" alt="Rosa">
+        </div>
+        <div class="persona-info">
+          <h3>Rosa Quezada</h3>
+          <span>Co-fundadora & Administración</span>
+        </div>
+      </div>
+
+      <div class="tarjeta-persona">
+        <div class="persona-foto">
+          <img src="/img/Nuestro Equipo/Esposo.jpg" alt="Victor">
+        </div>
+        <div class="persona-info">
+          <h3>Victor Vasquez</h3>
+          <span>Encargado de cultivo & Mantenimiento</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PLANTAS -->
+  <section id="plantas">
+    <div class="seccion-header">
+      <span class="seccion-tag">✦ Catálogo</span>
+      <h2>Nuestras <em>plantas</em></h2>
+    </div>
+
+    <!-- Filtros por categoría (como en la imagen de referencia) -->
+    <div class="filtros">
+      <button class="filtro activo" data-filtro="todas">Todas</button>
+      <button class="filtro" data-filtro="interior">Interior</button>
+      <button class="filtro" data-filtro="exterior">Exterior</button>
+      <button class="filtro" data-filtro="aromatica">Aromáticas</button>
+    </div>
+
+    <!-- Contenedor del carrusel -->
+    <div class="carrusel-wrapper">
+      <button class="carrusel-btn prev">&#8249;</button>
+
+      <div class="carrusel-track" id="carruselTrack">
+
+        <div class="planta-card" data-categoria="interior" data-nombre="Cuna de Moisés Variegada"
+          data-especie="Spathiphyllum 'Domino'"
+          data-cuidados="Luz indirecta brillante, mantener el sustrato húmedo sin encharcar."
+          data-extra="Sus hojas tienen un hermoso patrón jaspeado. Excelente purificadora de aire.">
+          <img src="/img/Plantas/cuna_de_moises_variegada.jpg" alt="Cuna de Moisés Variegada">
+          <div class="card-footer">
+            <span class="card-nombre">Cuna de Moisés Variegada</span>
+            <span class="card-tipo interior">Interior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="interior" data-nombre="Philodendron Birkin"
+          data-especie="Philodendron 'Birkin'"
+          data-cuidados="Luz indirecta, regar cuando la capa superior del sustrato esté seca."
+          data-extra="Sus hojas nuevas nacen casi blancas y desarrollan rayas verdes con el tiempo.">
+          <img src="/img/Plantas/philodendron_birkin.jpg" alt="Philodendron Birkin">
+          <div class="card-footer">
+            <span class="card-nombre">Philodendron Birkin</span>
+            <span class="card-tipo interior">Interior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="interior" data-nombre="Begonia Cruz de Hierro"
+          data-especie="Begonia masoniana"
+          data-cuidados="Luz media a brillante indirecta. Evitar mojar sus hojas texturizadas al regar."
+          data-extra="Destaca por su patrón oscuro en forma de cruz en el centro de sus hojas rugosas.">
+          <img src="/img/Plantas/begonia_cruz_de_hierro.jpg" alt="Begonia Cruz de Hierro">
+          <div class="card-footer">
+            <span class="card-nombre">Begonia Cruz de Hierro</span>
+            <span class="card-tipo interior">Interior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="interior" data-nombre="Cuerno de Alce"
+          data-especie="Platycerium bifurcatum"
+          data-cuidados="Alta humedad, luz filtrada. Se puede cultivar en maceta o montado en corteza."
+          data-extra="Un helecho epífito muy exótico que desarrolla hojas con forma de cuernos de ciervo.">
+          <img src="/img/Plantas/cuerno_de_alce.jpg" alt="Cuerno de Alce">
+          <div class="card-footer">
+            <span class="card-nombre">Cuerno de Alce</span>
+            <span class="card-tipo interior">Interior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="interior" data-nombre="Helecho Nido de Ave Crespo"
+          data-especie="Asplenium nidus 'Crispy Wave'"
+          data-cuidados="Humedad alta, luz indirecta moderada. No dejar secar completamente el sustrato."
+          data-extra="Sus frondas onduladas y brillantes aportan una textura única a cualquier espacio.">
+          <img src="/img/Plantas/helecho_nido_de_ave_crespo.jpg" alt="Helecho Nido de Ave Crespo">
+          <div class="card-footer">
+            <span class="card-nombre">Helecho Nido de Ave</span>
+            <span class="card-tipo interior">Interior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="interior" data-nombre="Maranta Sapito"
+          data-especie="Maranta leuconeura 'Lemon Lime'"
+          data-cuidados="Alta humedad y luz difusa. Sensible al frío y a las corrientes de aire."
+          data-extra="Conocida como planta que reza porque pliega sus hojas hacia arriba durante la noche.">
+          <img src="/img/Plantas/maranta_sapito.jpg" alt="Maranta Sapito">
+          <div class="card-footer">
+            <span class="card-nombre">Maranta Sapito</span>
+            <span class="card-tipo interior">Interior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="aromatica" data-nombre="Lavanda" data-especie="Lavandula"
+          data-cuidados="Pleno sol, sustrato con excelente drenaje. Riego moderado, soporta sequía."
+          data-extra="Atrae polinizadores y su aroma tiene propiedades relajantes.">
+          <img src="/img/Plantas/lavanda_real.jpg" alt="Lavanda">
+          <div class="card-footer">
+            <span class="card-nombre">Lavanda</span>
+            <span class="card-tipo aromatica">Aromática</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="aromatica" data-nombre="Toronjil / Melissa"
+          data-especie="Melissa officinalis"
+          data-cuidados="Semisombra o sol de mañana. Riego regular manteniendo la humedad."
+          data-extra="Sus hojas tienen un delicioso aroma a limón, ideales para infusiones relajantes.">
+          <img src="/img/Plantas/toronjil_melissa.jpg" alt="Toronjil">
+          <div class="card-footer">
+            <span class="card-nombre">Toronjil</span>
+            <span class="card-tipo aromatica">Aromática</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="aromatica" data-nombre="Menta"
+          data-especie="Mentha spicata"
+          data-cuidados="Luz directa o semisombra. Mantener el sustrato húmedo."
+          data-extra="Perfecta para infusiones y postres. Su aroma es muy refrescante.">
+          <img src="/img/Plantas/menta.jpg" alt="Menta">
+          <div class="card-footer">
+            <span class="card-nombre">Menta</span>
+            <span class="card-tipo aromatica">Aromática</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="aromatica" data-nombre="Orégano"
+          data-especie="Origanum vulgare"
+          data-cuidados="Pleno sol, suelo con buen drenaje. No regar en exceso."
+          data-extra="Un clásico en la cocina. Muy resistente y fácil de cultivar.">
+          <img src="/img/Plantas/oregano.jpg" alt="Orégano">
+          <div class="card-footer">
+            <span class="card-nombre">Orégano</span>
+            <span class="card-tipo aromatica">Aromática</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="exterior" data-nombre="Naranjo Calamondín"
+          data-especie="Citrus madurensis"
+          data-cuidados="Pleno sol y riego moderado. Proteger de heladas fuertes."
+          data-extra="Produce pequeños frutos decorativos y sus flores son muy aromáticas.">
+          <img src="/img/Plantas/naranjo_calamondin.jpg" alt="Naranjo Calamondín">
+          <div class="card-footer">
+            <span class="card-nombre">Naranjo Calamondín</span>
+            <span class="card-tipo exterior">Exterior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="exterior" data-nombre="Kumquat"
+          data-especie="Fortunella margarita"
+          data-cuidados="Exposición soleada, riego regular dejando secar el sustrato."
+          data-extra="Sus pequeños frutos se pueden comer enteros, con cáscara y todo.">
+          <img src="/img/Plantas/kumquat.jpg" alt="Kumquat">
+          <div class="card-footer">
+            <span class="card-nombre">Kumquat</span>
+            <span class="card-tipo exterior">Exterior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="exterior" data-nombre="Limonero"
+          data-especie="Citrus limon"
+          data-cuidados="Sol directo. Riego abundante en verano, reduciendo en invierno."
+          data-extra="Un frutal clásico que perfumará tu jardín con su flor de azahar.">
+          <img src="/img/Plantas/limonero.jpg" alt="Limonero">
+          <div class="card-footer">
+            <span class="card-nombre">Limonero</span>
+            <span class="card-tipo exterior">Exterior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="exterior" data-nombre="Plátano Oriental"
+          data-especie="Platanus orientalis"
+          data-cuidados="Pleno sol y espacios amplios. Riego profundo las primeras temporadas."
+          data-extra="Árbol de gran sombra con hojas caducas e imponente corteza moteada.">
+          <img src="/img/Plantas/platano_oriental.jpg" alt="Plátano Oriental">
+          <div class="card-footer">
+            <span class="card-nombre">Plátano Oriental</span>
+            <span class="card-tipo exterior">Exterior</span>
+          </div>
+        </div>
+
+        <div class="planta-card" data-categoria="exterior" data-nombre="Cordyline Australis"
+          data-especie="Cordyline australis"
+          data-cuidados="Luz brillante a pleno sol. Riego moderado."
+          data-extra="Aporta un toque tropical y escultural a cualquier jardín o terraza.">
+          <img src="/img/Plantas/cordyline.jpg" alt="Cordyline Australis">
+          <div class="card-footer">
+            <span class="card-nombre">Cordyline Australis</span>
+            <span class="card-tipo exterior">Exterior</span>
+          </div>
+        </div>
+
+      </div><!-- fin carrusel-track -->
+
+      <button class="carrusel-btn next">&#8250;</button>
+    </div><!-- fin carrusel-wrapper -->
+
+    <!-- Overlay de detalle (aparece al hacer click en una carta) -->
+    <div class="planta-overlay" id="plantaOverlay">
+      <button class="overlay-cerrar" id="overlayCerrar">✕</button>
+      <div class="overlay-contenido">
+        <div class="overlay-foto">
+          <img id="overlayImg" src="" alt="">
+        </div>
+        <div class="overlay-info">
+          <span class="overlay-especie" id="overlayEspecie"></span>
+          <h3 id="overlayNombre"></h3>
+          <div class="overlay-detalle">
+            <div>
+              <span class="detalle-label">🌿 Cuidados</span>
+              <p id="overlayCuidados"></p>
+            </div>
+            <div>
+              <span class="detalle-label">✦ Más info</span>
+              <p id="overlayExtra"></p>
+            </div>
+          </div>
+          <a id="btnConsultarDisponibilidad" href="#" target="_blank" class="hero-btn" style="margin-top:16px"
+            onclick="cerrarOverlay()">
+            Consultar disponibilidad →
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <footer id="footer">
+    <div class="footer-grid">
+
+      <div class="footer-col">
+        <div class="nav-logo" style="margin-bottom:12px">Vivero <span>Luchito</span></div>
+        <p class="footer-desc">
+          Cultivamos plantas con amor desde 2019.<br>
+          Visítanos y encuentra la tuya.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <a href="#hero">Inicio</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#plantas">Plantas</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Horario</h4>
+        <p>Lunes a Domingos</p>
+        <p>10:00 a 19:00</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2019 - 2026 Vivero Luchito — Hecho con 🌿</p>
+    </div>
+  </footer>
+
+  <!-- PESTAÑA FLOTANTE DE CONTACTO -->
+  <div class="contacto-flotante" id="contactoFlotante">
+
+    <button class="contacto-tab" id="contactoTab">
+      <span class="tab-icono"><i class="fa-solid fa-comment-dots"></i></span>
+      <span class="tab-texto">Contacto</span>
+    </button>
+
+    <div class="contacto-panel" id="contactoPanel">
+      <div class="panel-header">
+        <h4>¿Tienes alguna consulta?</h4>
+        <p>Escríbenos a WhatsApp o a nuestro Instagram</p>
+      </div>
+
+      <div class="panel-opciones">
+
+        <a href="https://wa.me/56936346334" target="_blank" class="panel-opcion whatsapp">
+          <span class="opcion-icono"><i class="fa-brands fa-whatsapp"></i></span>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>Respuesta rápida</span>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/vivero.luchito/?utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+          class="panel-opcion email">
+          <span class="opcion-icono"><i class="fa-brands fa-facebook"></i></span>
+          <div>
+            <strong>Facebook</strong>
+            <span>@vivero.luchito</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/viveroluchito/" class="panel-opcion telefono">
+          <span class="opcion-icono"><i class="fa-brands fa-instagram"></i></span>
+          <div>
+            <strong>Instagram</strong>
+            <span>@viveroluchito</span>
+          </div>
+        </a>
+
+      </div>
+
+      <a href="https://maps.app.goo.gl/xs2f1Cxk9Kgbe7oU9" class="panel-direccion">
+        <span><i class="fa-solid fa-store"></i></span>
+        <p>Pasaje Luis Aldunate 105, Chillán Viejo</p>
+      </a>
+    </div>
+
+
+  </div>
+</body>
+
+</html>

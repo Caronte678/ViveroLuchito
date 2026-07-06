@@ -1,0 +1,924 @@
+:root {
+  /* Paleta extraída del flyer Jardín Luchito */
+  --verde-oscuro: #008B99;
+  /* Teal oscuro (fondo inferior flyer) */
+  --verde-medio: #4DB1A5;
+  /* Teal medio/claro (fondo principal flyer) */
+  --verde-claro: #F7C733;
+  /* Amarillo para resaltar (textos flyer, botones) */
+  --verde-suave: #D2F1EC;
+  /* Teal extra suave para hovers (reemplaza al rojo/rosa) */
+  --crema: #FDFDFD;
+  /* Fondo base claro */
+  --tierra: #377A38;
+  /* Verde hoja oscuro (hojas flyer) */
+  --tierra-suave: #5CA84D;
+  /* Verde hoja claro (hojas flyer) */
+  --texto: #194E96;
+  /* Azul oscuro del texto del logo */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--crema);
+  color: var(--texto);
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 18px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(71, 187, 200);
+  /* Teal oscuro con opacidad */
+  backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: rgb(255, 255, 255);
+}
+
+.nav-logo span {
+  font-style: italic;
+  color: rgb(255, 221, 0);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--verde-claro);
+}
+
+
+/* ── HERO ── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 72px;
+  /* compensa la navbar fija */
+}
+
+.hero-left {
+  background: rgba(255, 255, 255, 0.051);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 64px;
+  border-radius: 5%;
+  backdrop-filter: blur(8px);
+  /* Efecto cristal / translúcido */
+  -webkit-backdrop-filter: blur(8px);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: 64px;
+  /* Espaciado del borde derecho */
+  z-index: 1;
+  /* Por encima de la imagen */
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(82, 183, 136, 0.15);
+  color: var(--verde-claro);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  width: fit-content;
+}
+
+.hero-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-titulo em {
+  font-style: italic;
+  color: var(--verde-claro);
+}
+
+.hero-desc {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
+  font-size: 1rem;
+  max-width: 380px;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--verde-claro);
+  color: var(--verde-oscuro);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  width: fit-content;
+  transition: all 0.3s;
+}
+
+.hero-btn:hover {
+  background: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(247, 199, 51, 0.4);
+}
+
+.hero-right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* Por detrás de .hero-left */
+  overflow: hidden;
+}
+
+.hero-foto-grande {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.activa {
+  opacity: 1;
+}
+
+/* ── SECCIONES GENERALES ── */
+.seccion-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.seccion-tag {
+  display: inline-block;
+  color: var(--verde-claro);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.seccion-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--verde-oscuro);
+  line-height: 1.2;
+}
+
+.seccion-header h2 em {
+  font-style: italic;
+  color: var(--verde-medio);
+}
+
+/* ── EQUIPO ── */
+#equipo {
+  padding: 100px 64px;
+  background: var(--crema);
+}
+
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.tarjeta-persona {
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 20px rgba(26, 58, 42, 0.08);
+  transition: transform 0.3s;
+}
+
+.tarjeta-persona:hover {
+  transform: translateY(-6px);
+}
+
+.persona-foto img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.persona-info {
+  padding: 20px 24px;
+}
+
+.persona-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--verde-oscuro);
+  margin-bottom: 4px;
+}
+
+.persona-info span {
+  font-size: 0.82rem;
+  color: var(--verde-medio);
+}
+
+/* ── PLANTAS ── */
+#plantas {
+  padding: 100px 64px;
+  background: var(--verde-oscuro);
+}
+
+#plantas .seccion-header h2 {
+  color: white;
+}
+
+#plantas .seccion-header h2 em {
+  color: var(--verde-claro);
+}
+
+#plantas .seccion-tag {
+  color: var(--tierra-suave);
+}
+
+/* Filtros */
+.filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filtro {
+  background: transparent;
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  color: rgba(183, 228, 199, 0.7);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+}
+
+.filtro:hover,
+.filtro.activo {
+  background: var(--verde-claro);
+  border-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-weight: 600;
+}
+
+/* Carrusel */
+.carrusel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.carrusel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  /* Permite scroll horizontal si no se usan los botones */
+  flex: 1;
+  scroll-behavior: smooth;
+  /* Padding vertical clave para que el hover (transform/sombra) no se corte */
+  padding: 20px 10px 40px 10px;
+  /* Estilo Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+
+/* Personalizar barra de scroll en Webkit (Chrome, Safari, Edge) */
+.carrusel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carrusel-track::-webkit-scrollbar-track {
+  background: transparent;
+  /* Fondo completamente translúcido */
+}
+
+.carrusel-track::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25);
+  /* Más oscura que el fondo teal */
+  border-radius: 10px;
+}
+
+.carrusel-track::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.carrusel-btn {
+  background: rgba(82, 183, 136, 0.15);
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  color: var(--verde-claro);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrusel-btn:hover {
+  background: var(--verde-claro);
+  color: var(--verde-oscuro);
+}
+
+/* Cards */
+.planta-card {
+  flex: 0 0 calc(25% - 15px);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(82, 183, 136, 0.15);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.planta-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--verde-claro);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.planta-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-footer {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-nombre {
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.card-tipo {
+  font-size: 0.72rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.card-tipo.interior {
+  background: rgba(82, 183, 136, 0.2);
+  color: var(--verde-claro);
+}
+
+.card-tipo.exterior {
+  background: rgba(45, 106, 79, 0.4);
+  color: #90e0c0;
+}
+
+.card-tipo.suculenta {
+  background: rgba(212, 165, 116, 0.2);
+  color: var(--tierra-suave);
+}
+
+.card-tipo.aromatica {
+  background: rgba(139, 94, 60, 0.3);
+  color: #e8b98a;
+}
+
+/* Overlay */
+.planta-overlay {
+  display: none;
+  position: relative;
+  margin-top: 32px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(82, 183, 136, 0.2);
+  border-radius: 20px;
+  padding: 32px;
+  animation: fadeIn 0.3s ease;
+}
+
+.planta-overlay.visible {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overlay-cerrar {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: transparent;
+  border: 1px solid rgba(82, 183, 136, 0.3);
+  color: var(--verde-claro);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.overlay-cerrar:hover {
+  background: var(--verde-claro);
+  color: var(--verde-oscuro);
+}
+
+.overlay-contenido {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.overlay-foto img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.overlay-especie {
+  font-size: 0.8rem;
+  color: var(--tierra-suave);
+  font-style: italic;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.overlay-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.overlay-detalle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.detalle-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--verde-claro);
+  margin-bottom: 6px;
+}
+
+.overlay-detalle p {
+  color: rgba(183, 228, 199, 0.8);
+  line-height: 1.7;
+  font-size: 0.92rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #005a66;
+  /* Un tono más oscuro que el verde-oscuro para dividir visualmente */
+  padding-top: 64px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  padding: 0 64px 48px;
+}
+
+.footer-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.footer-col h4 {
+  color: var(--verde-claro);
+  /* Amarillo de los títulos del flyer */
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer-col a {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--verde-claro);
+}
+
+.footer-col p {
+  color: rgba(183, 228, 199, 0.55);
+  font-size: 0.88rem;
+  line-height: 1.8;
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.15);
+  /* División de color */
+  padding: 20px 64px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+/* ── PESTAÑA FLOTANTE ── */
+.contacto-flotante {
+  position: fixed;
+  bottom: 32px;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.contacto-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--verde-claro);
+  color: var(--verde-oscuro);
+  border: none;
+  padding: 12px 20px 12px 16px;
+  border-radius: 12px 0 0 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+}
+
+.contacto-tab:hover {
+  background: var(--verde-suave);
+  padding-right: 28px;
+}
+
+.tab-icono {
+  font-size: 1rem;
+}
+
+/* Panel que se despliega */
+.contacto-panel {
+  display: none;
+  background: white;
+  border-radius: 16px 0 0 16px;
+  box-shadow: -8px 8px 40px rgba(0, 0, 0, 0.18);
+  width: 300px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  animation: slideIn 0.3s ease;
+}
+
+.contacto-panel.abierto {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.panel-header {
+  background: var(--verde-oscuro);
+  padding: 20px 24px;
+}
+
+.panel-header h4 {
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.panel-header p {
+  color: rgba(183, 228, 199, 0.65);
+  font-size: 0.8rem;
+}
+
+.panel-opciones {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panel-opcion {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.panel-opcion:hover {
+  transform: translateX(-4px);
+}
+
+.panel-opcion.whatsapp {
+  background: #f0faf4;
+  border-color: #c6e8d4;
+}
+
+.panel-opcion.whatsapp:hover {
+  background: #d4f0e0;
+}
+
+.panel-opcion.email {
+  background: #f5f3ff;
+  border-color: #ddd6fe;
+}
+
+.panel-opcion.email:hover {
+  background: #ede9fe;
+}
+
+.panel-opcion.telefono {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.panel-opcion.telefono:hover {
+  background: #ffedd5;
+}
+
+.opcion-icono {
+  font-size: 1.4rem;
+}
+
+.panel-opcion div {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-opcion strong {
+  color: var(--texto);
+  font-size: 0.88rem;
+}
+
+.panel-opcion span {
+  color: #888;
+  font-size: 0.78rem;
+}
+
+.panel-direccion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background: var(--gris);
+  border-top: 1px solid #eee;
+  text-decoration: none;
+  color: inherit;
+}
+
+.panel-direccion p {
+  font-size: 0.82rem;
+  color: #666;
+}
+
+/* ── MEDIA QUERIES (RESPONSIVE) ── */
+
+@media (max-width: 992px) {
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid .footer-col:first-child {
+    grid-column: 1 / -1;
+    margin-bottom: 24px;
+  }
+
+  .planta-card {
+    flex: 0 0 calc(33.333% - 14px);
+  }
+
+  .overlay-contenido {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 16px 24px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  #hero {
+    padding-top: 72px;
+    justify-content: center;
+    /* Centrar caja en móviles */
+  }
+
+  .hero-left {
+    padding: 32px 20px;
+    margin: 0 auto;
+    align-items: center;
+    text-align: center;
+    width: 90%;
+  }
+
+  .hero-titulo {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+  }
+
+  .hero-desc {
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+  }
+
+  .hero-tag {
+    margin-bottom: 16px;
+  }
+
+  .hero-right {
+    height: 100%;
+  }
+
+  #equipo,
+  #plantas {
+    padding: 64px 24px;
+  }
+
+  .equipo-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .planta-card {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  .planta-overlay {
+    padding: 24px;
+  }
+
+  .overlay-contenido {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .overlay-foto img {
+    height: 200px;
+  }
+
+  .overlay-info h3 {
+    margin-bottom: 16px;
+  }
+
+  footer {
+    padding-top: 48px;
+  }
+
+  .footer-grid {
+    padding: 0 24px 48px;
+    grid-template-columns: 1fr 1fr;
+    /* Dos columnas para navegación y horario */
+    gap: 32px 16px;
+    text-align: left;
+  }
+
+  .footer-col:first-child {
+    grid-column: 1 / -1;
+    /* El logo y la descripción ocupan todo el ancho */
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .footer-bottom {
+    padding: 24px 24px 80px;
+    /* Espacio para el botón flotante movido aquí */
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  #hero {
+    padding-top: 100px;
+    /* Compensa el mayor tamaño del nav */
+  }
+
+  .planta-card {
+    flex: 0 0 calc(100% - 20px);
+  }
+
+  .carrusel-btn {
+    display: none;
+    /* Ocultar botones en móviles pequeños y usar scroll natural */
+  }
+
+  .carrusel-track {
+    overflow-x: auto;
+    padding-bottom: 16px;
+  }
+
+  .contacto-panel {
+    width: calc(100vw - 32px);
+  }
+}
