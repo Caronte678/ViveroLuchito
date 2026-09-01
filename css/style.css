@@ -604,6 +604,22 @@ footer {
   font-size: 0.85rem;
 }
 
+.contador-visitas {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  letter-spacing: 0.4px;
+}
+
+.contador-visitas i {
+  color: var(--verde-claro);
+  margin-right: 6px;
+}
+
+.contador-visitas[hidden] {
+  display: none;
+}
+
 /* ── PESTAÑA FLOTANTE ── */
 .contacto-flotante {
   position: fixed;

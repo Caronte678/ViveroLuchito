@@ -80,3 +80,20 @@ document.addEventListener('click', (e) => {
     panel.classList.remove('abierto');
   }
 });
+
+// ── CONTADOR DE VISITAS ──
+const contadorVisitas = document.getElementById('contadorVisitas');
+const contadorNumero = document.getElementById('contadorNumero');
+
+if (contadorVisitas && contadorNumero) {
+  fetch('./contador.php', { cache: 'no-store' })
+    .then(res => res.ok ? res.json() : Promise.reject(res.status))
+    .then(data => {
+      if (typeof data.visitas !== 'number') return;
+      contadorNumero.textContent = data.visitas.toLocaleString('es-CL');
+      contadorVisitas.hidden = false;
+    })
+    .catch(() => {
+      // Si el contador falla, el footer simplemente queda sin él
+    });
+}
