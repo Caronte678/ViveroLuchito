@@ -24,6 +24,12 @@
   box-sizing: border-box;
 }
 
+/* <picture> es solo un envoltorio para servir WebP: que no afecte al layout,
+   asi las reglas existentes sobre img siguen aplicando igual */
+picture {
+  display: contents;
+}
+
 html {
   scroll-behavior: smooth;
 }

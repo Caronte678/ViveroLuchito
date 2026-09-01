@@ -32,7 +32,9 @@ document.querySelectorAll('.planta-card').forEach(card => {
     document.getElementById('overlayEspecie').textContent = card.dataset.especie;
     document.getElementById('overlayCuidados').textContent = card.dataset.cuidados;
     document.getElementById('overlayExtra').textContent = card.dataset.extra;
-    document.getElementById('overlayImg').src = card.querySelector('img').src;
+    // currentSrc reutiliza el WebP ya descargado por la carta, en vez de bajar el JPEG de nuevo
+    const imgCarta = card.querySelector('img');
+    document.getElementById('overlayImg').src = imgCarta.currentSrc || imgCarta.src;
 
     // Configurar el enlace de WhatsApp con el nombre de la planta
     const btnWhatsapp = document.getElementById('btnConsultarDisponibilidad');
